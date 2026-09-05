@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+ html>
 <html lang="en">
-<head>
+<head><!DOCTYPE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InSell - Dashboard</title>
@@ -67,99 +67,4 @@
             background-color: #22c55e;
             border-radius: 50%;
             display: inline-block;
-        }
-        .balance-amount {
-            font-size: 32px;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: 12px;
-        }
-        .speed-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: #eef2ff;
-            color: #4f46e5;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .stats-row {
-            display: flex;
-            justify-content: space-between;
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            font-size: 13px;
-        }
-        .stats-item span {
-            font-weight: 600;
-            color: #111;
-        }
-        .withdraw-btn {
-            width: 100%;
-            background: #111;
-            color: #fff;
-            border: none;
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-        }
-        .ad-container {
-            margin-top: 20px;
-            background: #eaeef2;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            color: #777;
-            font-size: 12px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="header">
-            <div class="logo-area">
-                <span>⚡</span> InSell
-            </div>
-            <button class="refresh-btn" onclick="location.reload()">🔄 Refresh</button>
-        </div>
-
-        <div class="balance-card">
-            <div class="live-label"><span class="live-dot"></span> Live Balance</div>
-            <div class="balance-amount">₹<span id="balance">214.84</span></div>
-            <div class="speed-badge">
-                ⚡ <span id="speed">1.21</span> MB/s <span style="font-weight:normal; color:#666; font-size:11px;">• sell speed</span>
-            </div>
-        </div>
-
-        <div class="stats-row">
-            <div class="stats-item">Today's Earnings: <span id="today-earn">₹214.84</span></div>
-            <div class="stats-item">Total Sold: <span id="total-sold">95.7 MB</span></div>
-        </div>
-
-        <button class="withdraw-btn" onclick="alert('Withdrawal request submitted! Processing...')">Withdraw Funds</button>
-
-        <div class="ad-container">
-            [ Ad Banner Space - Yahan apna Ad Network Code Dalein ]
-        </div>
-    </div>
-
-    <script>
-        // Automatic live counter increment simulation
-        let balance = 214.84;
-        setInterval(() => {
-            balance += 0.01;
-            document.getElementById('balance').innerText = balance.toFixed(2);
-            document.getElementById('today-earn').innerText = '₹' + balance.toFixed(2);
-        }, 3000);
-    </script>
-
-</body>
-</html>
+        
