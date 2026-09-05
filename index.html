@@ -1,9 +1,9 @@
- html>
+<!DOCTYPE html>
 <html lang="en">
-<head><!DOCTYPE
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InSell - Dashboard</title>
+    <title>InSell - Dashboard & Spin</title>
     <style>
         * {
             margin: 0;
@@ -51,7 +51,6 @@
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 15px;
-            position: relative;
         }
         .live-label {
             font-size: 12px;
@@ -67,4 +66,160 @@
             background-color: #22c55e;
             border-radius: 50%;
             display: inline-block;
-        
+        }
+        .balance-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 12px;
+        }
+        .speed-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        .stats-item span {
+            font-weight: 600;
+            color: #111;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .action-btn {
+            flex: 1;
+            background: #111;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+        .action-btn.deposit {
+            background: #22c55e;
+        }
+        .spin-section {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            color: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .spin-section h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .spin-section p {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        .spin-btn {
+            background: #fff;
+            color: #4f46e5;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .ad-container {
+            margin-top: 15px;
+            background: #eaeef2;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo-area"><span>⚡</span> InSell</div>
+            <button class="refresh-btn" onclick="location.reload()">🔄 Refresh</button>
+        </div>
+
+        <div class="balance-card">
+            <div class="live-label"><span class="live-dot"></span> Live Balance</div>
+            <div class="balance-amount">₹<span id="balance">214.84</span></div>
+            <div class="speed-badge">⚡ <span id="speed">1.21</span> MB/s</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stats-item">Today's Earnings: <span id="today-earn">₹214.84</span></div>
+            <div class="stats-item">Total Sold: <span id="total-sold">95.7 MB</span></div>
+        </div>
+
+        <div class="btn-group">
+            <button class="action-btn deposit" onclick="depositMoney()">Deposit</button>
+            <button class="action-btn" onclick="withdrawMoney()">Withdraw</button>
+        </div>
+
+        <div class="spin-section">
+            <h3>🎰 Spin & Win</h3>
+            <p>Spin karo aur jeeto ₹5 se lekar ₹10 tak cash!</p>
+            <button class="spin-btn" onclick="spinAndWin()">Spin Now</button>
+        </div>
+
+        <div class="ad-container">
+            [ Ad Banner Space ]
+        </div>
+    </div>
+
+    <script>
+        let balance = 214.84;
+        setInterval(() => {
+            balance += 0.01;
+            document.getElementById('balance').innerText = balance.toFixed(2);
+            document.getElementById('today-earn').innerText = '₹' + balance.toFixed(2);
+        }, 3000);
+
+        function depositMoney() {
+            let amount = prompt("Kitna amount deposit karna hai? (e.g. 100):");
+            if (amount && !isNaN(amount)) {
+                balance += parseFloat(amount);
+                document.getElementById('balance').innerText = balance.toFixed(2);
+                alert("Success! ₹" + amount + " deposit ho gaye hain.");
+            }
+        }
+
+        function withdrawMoney() {
+            let upi = prompt("Apna UPI ID daliye withdrawal ke liye:");
+            if (upi) {
+                alert("Withdrawal request submitted successfully!");
+            }
+        }
+
+        function spinAndWin() {
+            let randomWin = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+            balance += randomWin;
+            document.getElementById('balance').innerText = balance.toFixed(2);
+            alert("🎉 Badhai ho! Aapne Spin & Win mein ₹" + randomWin + " jeet liye hain!");
+        }
+    </script>
+</body>
+</html>
